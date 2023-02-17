@@ -108,5 +108,16 @@ def getRankCorrection(rank,is_critical=False):
     else:
         return 1.0 + abs(rank) / 2.0
 
+def setSpecialIndivisualValue(option="v"):
+    if option in ["V","v","-v"]:
+        return [31 for i in range(6)]
+    elif option in ["0","O","o","-o"]:
+        return [0 for i in range(6)]
+    
+def getBasicDamage(attack_status,diffence_status):
+    pass
+def setGigadynamax():
+    pass
+
 if __name__ == "__main__":
     print(getTypeCorrection("かくとう","ゴースト"))
