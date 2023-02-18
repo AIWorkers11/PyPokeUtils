@@ -1,23 +1,32 @@
+from . import pstatus as pst
+
 class Pokemon():
-	def __init__(self,\
-	index_num=0,nn="",level=0,nature="",\
-	race_value=[0 for i in range(6)],\
-	indivisual_value=[0 for x in range(6)],\
-	effort_value=[0 for i in range(6)],held_item=""):
-		self.__index_num = index_num		#図鑑番号
-		self.__nn = nn				#ニックネーム
-		self.__level = level 			#レベル
-		self.__nature = nature
-		self.__race_value = race_value		#種族値
-		self.__indivisual_value = indivisual_value 		#個体値
-		self.__effort_value = effort_value	#努力値
-		self.__held_item = held_item		#もちもの
-		self.__exp = level ** 3		#経験値（バトルシステム自体には不要。ここでは100万タイプ・端数切捨て）
-	def getPokemonData(self):
-		return [
+    def __init__(self,
+	index_num           :int        = 0,
+    nn                  :str        = "",
+    level               :int        = 0,
+    ability             :pst.Ability= pst.Ability(),
+    nature              :str        = "",
+    race_value          :pst.Status = pst.Status([]),
+    indivisual_value    :pst.Status = pst.Status([]),
+    effort_value        :pst.Status = pst.Status([]),
+    held_item           :str        = ""):
+        self.__index_num = index_num		            #図鑑番号
+        self.__nn = nn			                    	#ニックネーム
+        self.__level = level         		        	#レベル
+        self.__ability = ability
+        self.__nature = nature                          #性格
+        self.__race_value = race_value	            	#種族値
+        self.__indivisual_value = indivisual_value 		#個体値
+        self.__effort_value = effort_value	            #努力値
+        self.__held_item = held_item		            #もちもの
+        self.__exp = level ** 3		                    #経験値（バトルシステム自体には不要。ここでは100万タイプ・端数切捨て）
+    def getPokemonData(self):
+	    return [
             self.__index_num,
             self.__nn,
             self.__level,
+            self.__ability,
             self.__nature,
             self.__race_value,
             self.__indivisual_value,
@@ -113,7 +122,8 @@ def setSpecialIndivisualValue(option="v"):
         return [31 for i in range(6)]
     elif option in ["0","O","o","-o"]:
         return [0 for i in range(6)]
-    
+
+#TODO
 def getBasicDamage(attack_status,diffence_status):
     pass
 def setGigadynamax():

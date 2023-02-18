@@ -1,4 +1,4 @@
-import pokeutils
+from pokeutils import *
 
 pokemon_list = [0]
 
@@ -42,35 +42,36 @@ def ConsoleMes(mes,mtype="info"):
         return "[WARNING]:"+mes
 
 def SelectPokemonMenu():
-    print("[INFO]:ポケモン選択画面です。")
-    index_num = input("[INFO]:ポケモンの全国図鑑番号を入力してください。（半角数字）:")
+    print(ConsoleMes("ポケモン選択画面です。"))
+    index_num = input(ConsoleMes("ポケモンの全国図鑑番号を入力してください。（半角数字）:"))
     try:
         index_num = int(index_num)
         print(index_num)
         pokemon_name = "ピカチュウ"
         while 1:
-            yn = input("[INFO]:"+ pokemon_name + "でよろしいですか?(y/n)")
+            yn = input(ConsoleMes(pokemon_name + "でよろしいですか?(y/n)"))
             if yn in ["y","Y"]:
                 n = pokeutils.Pokemon(0,pokemon_name)
                 addPokemon(n)
                 break
             elif yn in ["n","N"]:
-                print("[INFO]:操作が取り消されました。")
+                print(ConsoleMes("操作が取り消されました。"))
                 break
             else:
-                print("[ERROR]:値が不正です。再入力してください。")
+                print(ConsoleMes("値が不正です。再入力してください。","error"))
 
     except ValueError as v:
         print(v)
         print("[ERROR]:不正な値です。")
 
 def BattleSetup():
-    print("[INFO]:バトルのセットアップを開始します。\n[INFO]:使用するポケモンを6匹選択してください。")
+    print(ConsoleMes("バトルのセットアップを開始します。"))
+    print(ConsoleMes("使用するポケモンを6匹選択してください。"))
     pass
 
 def Battle():
-    print("[INFO]:バトル開始！")
-    print("[INFO]:バトル終了！")
+    print(ConsoleMes("バトル開始！"))
+    print(ConsoleMes("バトル終了！"))
 
 def ShowPokemon():
     pass

@@ -1,4 +1,4 @@
-import pokeutils as pu		#pokeutiles.pyをソースファイルと同じディレクトリに入れて実行してください
+import pokeutils as pu		#pokeutilesパッケージをソースファイルと同じディレクトリに入れて実行してください
 
 if __name__ == "__main__":
 	pikachu = pu.Pokemon(25,"ピカチュウ",50,"ひかえめ",[35,55,40,50,50,90],[31,31,31,31,31,31],held_item="でんきだま")
